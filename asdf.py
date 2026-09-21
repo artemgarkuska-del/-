@@ -2,6 +2,7 @@ from time import sleep
 import random as r
 counter_ned_pos = 0
 n = 1
+# quest.py
 import images
 
 
@@ -11,22 +12,22 @@ def slow_print(text):
         print(letter, end='')
         sleep(0.01)
     print()
-        
+
 sleep(5)
 inv = set()
 help_c = 0
 def Pods():
     slow_print('Вы проснулись в подсобке')
     slow_print('Вы Можете: 1 выломать дверь, 2 Посмотреть в ящиках, 3 Позвать на помощь.')
-    vvod = input()
-    if vvod == '1':
+    q = input()
+    if q == '1':
         if 'molot' in inv:
             slow_print('Вы прошли в Склад')
             Sklad()
         else:
             slow_print('не получилось')
             Pods()
-    elif vvod == '2':
+    elif q == '2':
         if 'molot' not in inv:
             slow_print('Вы нашли молоток!')
             print(images.molot)
@@ -34,7 +35,7 @@ def Pods():
         else:
             slow_print('Больше ничего')
         Pods()
-    elif vvod == '3':
+    elif q == '3':
         slow_print('Вы позвали на помощь... но никто не пришёл')
         Pods()
     else:
@@ -44,10 +45,10 @@ def Pods():
 def Sklad():
     slow_print('Вы На складе')
     slow_print('Вы Можете: 1 пойти на кассу, 2 отобрать ключ у крысы, 3 осмотреть Склад, 4 Пойти в зал., 5 пойти в подсобку')
-    vvod = input()
-    if vvod == '1':
+    q = input()
+    if q == '1':
         Kassa()
-    elif vvod == '2':
+    elif q == '2':
         if 'cheese' not in inv:
             slow_print('АЙ %;?№@!')
         else:
@@ -55,15 +56,15 @@ def Sklad():
             print(images.key)
             inv.add('key')
         Sklad()
-    elif vvod == '3':
+    elif q == '3':
         slow_print('ща...')
         sleep(6)
         slow_print('Нашёл Считок! но какой код...')
         Chitok()
-    elif vvod == '4':
+    elif q == '4':
         slow_print('Вы в зале.')
         Zal()
-    elif vvod == '5':
+    elif q == '5':
         slow_print('Нафига? Я там был. Что мне там делать')
         Sklad()
     else:
@@ -72,12 +73,12 @@ def Sklad():
         Sklad()
 def Chitok():
     slow_print('ВВЕДИТЕ КОД или 2 пойти обратно')
-    vvod = input()
-    if vvod == '67MICHAO67':
+    q = input()
+    if q == '67MICHAO67':
         slow_print('НИХРЕНА!!! ОТКУДА ТЫ ЗНАЛ??? Получен пульт от ядерки!')
         inv.add('pult')
         Sklad()
-    elif vvod == '2':
+    elif q == '2':
         Sklad()
     else:
         slow_print('Неа')
@@ -86,16 +87,16 @@ def Kassa():
     slow_print('Вы на кассе')
     slow_print('Вы Видите уснувшего человека прикованного к столбу и бомбу у его ног')
     slow_print('Что делать: 1 взять деньги :), 2 спасти человека, 3 убить человека, 4 вернутся, 5 пойти в Кабинет мэнэджера')
-    vvod = input()
-    if vvod == '1':
+    q = input()
+    if q == '1':
         slow_print('О! Деньги! 5к')
         print(images.cash)
         inv.add('cash')
         Kassa()
-    elif vvod == '2':
+    elif q == '2':
          slow_print('Тут задача! Два поезда, Поезд А и Поезд Б, в одно и то же время покидают Станцию А и Станцию Б. Станция А и Станция Б находятся в 252.5 км друг от друга. Поезд А движется со скоростью 124.7 км/ч, по направлению к Станции Б, а Поезд Б движется со скоростью 253.5 км/ч по направлению к Станции А. Если оба выехали в 10:00 утра и сейчас 10:08, сколько времени пройдет, прежде чем поезда встретятся?')
-         vvod = input()
-         if vvod == '32':
+         q = input()
+         if q == '32':
              slow_print('Вы спасли человека!')
              inv.add('chel')
              Kassa()
@@ -103,16 +104,16 @@ def Kassa():
             slow_print('Вы слишите тик и перед вами предстоёт тьма')
             slow_print('Вы мертвы')
             exit()
-    elif vvod == '3':
+    elif q == '3':
         if 'knife' in inv:
             slow_print('Не знаю зачем вы его убили, я хрен знает к чему.')
             inv.add('dead')
         else:
             slow_print('Не вышло')
         Kassa()
-    elif vvod == '4':
+    elif q == '4':
         Sklad()
-    elif vvod == '5':
+    elif q == '5':
         if 'key' not in inv:
             slow_print('Хм... Нет ключа')
             Kassa()
@@ -126,8 +127,8 @@ def Kassa():
 def Zal():
     slow_print('Вы в зале')
     slow_print('Что вы сделаете: 1 Возьму Шаверму, 2 Уйти из Магнита, 3 Взять сыр, 4 Пойти на склад')
-    vvod = input()
-    if vvod == '1':
+    q = input()
+    if q == '1':
         print('''..   ....   ....   ....   ...    ...    ...    ...    ...    ...    ...    ...    ...    ...    ...    ...    ...    ...    ...   ....   ....   ....   ....   ..
 ..   ....   ....   ....   ....   ...    ...    ...    ...    ...    ...    ...    ...    ...    ...    ...    ...    ...   ....   ....   ....   ....   ....   ..
   ...    ...    ...   ....   ....   ....   ....   ....   ....   ....   ....   ....   ....   ....   ....   ....   ....   ....   ....   ...    ...    ...    ...  
@@ -349,36 +350,38 @@ def Zal():
 ''')
         slow_print('ВКУСНО')
         Zal()
-    elif vvod == '2':
+    elif q == '2':
         if 'key' not in inv:
             slow_print('Хм... Нет ключа')
             Zal()
         elif 'key' in inv:
             slow_print('УРААААА СВОБОДААА!')
-            if 'chel' not in inv:
-                slow_print('Вы сбежали из Магнита')
-                slow_print('Код: 67********')
-            elif 'chel' in inv:
-                slow_print('Вы сбежали из Магнита и спасли человека!')
-                slow_print('Код: ********67')
-            elif 'dead' in inv:
-                slow_print('Вы сбежали из Магнита и убили человека, МОЛОДЕЦ ТЫ ИЗМИНИЛ МИР!')
-                slow_print('Код: **MICHAO**')
-            elif 'bomb' in inv:
+            a = 0
+            if 'bomb' in inv:
                 slow_print('Вы сбежали из Магнита')
                 sleep(10)
                 slow_print('Bы в Слабоде. Взорвать бомбу?')
-                vvod = input()
-                if vvod == 'да':
+                q = input()
+                if q == 'да':
                     slow_print('Вы взорвали бомбу и остались жить в слободе. Концовка: До Слободы доеду?')
-                elif vvod == 'нет' and 'cash' in inv:
-                    slow_print('Вы решили не взрывать бомбу. Вы пошли учиться в Гарвард.Надо, бы сделать приложение... Например Facebook!. Концовка: Марк Цуккерберк?')
-                elif vvod == 'нет' and 'cash' not in inv:
+                elif q == 'нет' and 'cash' in inv:
+                    slow_print(
+                        'Вы решили не взрывать бомбу. Вы пошли учиться в Гарвард.Надо, бы сделать приложение... Например Facebook!. Концовка: Марк Цуккерберк?')
+                elif q == 'нет' and 'cash' not in inv:
                     slow_print('Вы решили не взрывать бомбу. Вы остались в Слабоде с чистой Совестью!. Концовка: Слобода2')
                 else:
                     slow_print(':(. Концовка: Нерешительность')
+            elif 'chel' not in inv and 'dead' not in inv:
+                slow_print('Вы сбежали из Магнита')
+                slow_print('Код: 67********')
+            elif 'chel' in inv and 'bomb' not in inv:
+                slow_print('Вы сбежали из Магнита и спасли человека!')
+                slow_print('Код: ********67')
+            elif 'dead' in inv and 'bomb' not in inv:
+                slow_print('Вы сбежали из Магнита и убили человека, МОЛОДЕЦ ТЫ ИЗМИНИЛ МИР!')
+                slow_print('Код: **MICHAO**')
             exit()
-    elif vvod == '3':
+    elif q == '3':
         sleep(2)
         if r.randint(1, 100) == 1:
             slow_print('Вы подскользнулись и упали. Вы мертвы')
@@ -467,23 +470,22 @@ def Zal():
                                                                                                                                                                 
 ''')
             inv.add('cheese')
+            inv.add('bomb')
+            inv.add('chel2')
         else:
             slow_print('Отказано')
         Zal()
-    elif vvod == '4':
+    elif q == '4':
         Sklad()
-    else:
-        print('нет')
-        Zal()
 def Kab():
     slow_print('Вы в Кабинете')
     slow_print('Что вы сделаете: 1 Осмотрюсь , 2 Прикреплю бомбу, 3 Взять концелярский нож, 4 Пойти на Кассу, 5 пойти в Зал')
-    vvod = input()
-    if vvod == '1':
+    q = input()
+    if q == '1':
         sleep(15)
         slow_print('Сейф!')
         Seif()
-    elif vvod == '2':
+    elif q == '2':
         if 'pult' not in inv:
             slow_print('У вас нет бомбы')
         elif 'pult' in inv:
@@ -493,7 +495,7 @@ def Kab():
                 slow_print('Теперь-то я подорву им продажи!')
                 inv.add('bomb')
         Kab()
-    elif vvod == '3':
+    elif q == '3':
         sleep(2)
         if r.randint(1, 10) == 1:
             slow_print('Вы подскользнулись и упали. Вы мертвы')
@@ -561,21 +563,21 @@ def Kab():
         else:
             slow_print('Стоп!!! НОЖУ НЕ ПРИЯТНО')
         Kab()
-    elif vvod == '4':
+    elif q == '4':
         Kassa()
-    elif vvod == '5':
+    elif q == '5':
         Zal()
     else:
         slow_print('Неа')
         Kab()
 def Seif():
     slow_print('ВВЕДИТЕ КОД 1: Artem, 2: 1234-234*2, 3: *- умножить на 4 или 2 пойти обратно')
-    vvod = input()
-    if vvod == 'Artem1234-234*2*- умножить на 4':
+    q = input()
+    if q == 'Artem1234-234*2*- умножить на 4':
         slow_print('Сигма!!! Получен пульт от бомбы!')
         inv.add('pult2')
         Kab()
-    elif vvod == '2':
+    elif q == '2':
         Kab()
     else:
         slow_print('Неа')
